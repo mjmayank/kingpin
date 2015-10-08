@@ -36,7 +36,7 @@ typedef NS_ENUM(NSInteger, KPClusteringControllerMapViewportChangeState) {
 @property (strong, nonatomic) MKMapView *mapView;
 @property (strong, nonatomic) KPAnnotationTree *annotationTree;
 @property (strong, nonatomic) id <KPClusteringAlgorithm> clusteringAlgorithm;
-@property (strong, nonatomic) NSDictionary *annotationDict;
+@property (strong, nonatomic) NSMutableDictionary *annotationDict;
 
 @property (readonly, nonatomic) NSArray *currentAnnotations;
 
