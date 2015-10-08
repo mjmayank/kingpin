@@ -67,6 +67,7 @@ static CGPoint CGPointFromNSValue(NSValue *value) {
 - (NSArray *)clusterAnnotationsInMapRect:(MKMapRect)mapRect
                            parentMapView:(MKMapView *)mapView
                           annotationTree:(KPAnnotationTree *)annotationTree
+                          annotationDict:(NSDictionary *)annotationDict
 {
     [self _ensureStrategyIntegrity];
     
@@ -95,9 +96,11 @@ static CGPoint CGPointFromNSValue(NSValue *value) {
 
             // cluster annotations in this grid piece, if there are annotations to be clustered
             if (newAnnotations.count > 0) {
-                
                 id annotation = [[KPAnnotation alloc] initWithAnnotations:newAnnotations];
                 [newClusters addObject:annotation];
+                for newAnnotation in newAnnotations{
+                    annotationDict[newAnnotation] = annotation;
+                }
 
                 kp_cluster_t *cluster = clusterGrid[col] + row;
                 

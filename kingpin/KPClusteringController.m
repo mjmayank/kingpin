@@ -204,10 +204,13 @@ typedef NS_ENUM(NSInteger, KPClusteringControllerMapViewportChangeState) {
         clusteringEnabled = [self.delegate clusteringControllerShouldClusterAnnotations:self];
     }
 
+    NSDictionary * annotationDict = [[NSDictionary alloc] init];
+    
     if (clusteringEnabled) {
         newClusters = [self.clusteringAlgorithm clusterAnnotationsInMapRect:clusteringMapRect
                                                               parentMapView:self.mapView
-                                                             annotationTree:self.annotationTree];
+                                                             annotationTree:self.annotationTree
+                                                             annotationDict:annotationDict];
     } else {
         NSArray *newAnnotations = [self.annotationTree annotationsInMapRect:clusteringMapRect];
 
