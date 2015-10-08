@@ -58,7 +58,7 @@ typedef NS_ENUM(NSInteger, KPClusteringControllerMapViewportChangeState) {
 
 - (id)initWithMapView:(MKMapView *)mapView
 {
-    self.annotationDict = [[NSDictionary alloc] init];
+    self.annotationDict = [[NSMutableDictionary alloc] init];
     return [self initWithMapView:mapView
              clusteringAlgorithm:[[KPGridClusteringAlgorithm alloc] init]];
             
