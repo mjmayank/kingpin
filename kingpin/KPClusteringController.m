@@ -179,10 +179,10 @@ typedef NS_ENUM(NSInteger, KPClusteringControllerMapViewportChangeState) {
 
 -(KPAnnotation *)getClusterForAnnotation:(NSObject<MKAnnotation> *)annotation{
     if(self.annotationDict[annotation]){
-        return self.annotationDict[annotation];
+        return [self.annotationDict objectForKey:annotation];
     }
     else{
-        return annotation;
+        return nil;
     }
 }
 
