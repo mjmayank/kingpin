@@ -99,7 +99,7 @@ static CGPoint CGPointFromNSValue(NSValue *value) {
                 id annotation = [[KPAnnotation alloc] initWithAnnotations:newAnnotations];
                 [newClusters addObject:annotation];
                 for(NSObject<MKAnnotation> * newAnnotation in newAnnotations){
-                    [annotationDict setObject:annotation forKey:newAnnotation];
+                    [annotationDict setObject:[NSValue valueWithNonretainedObject:annotation] forKey:[NSValue valueWithNonretainedObject:newAnnotation]];
                 }
 
                 kp_cluster_t *cluster = clusterGrid[col] + row;
