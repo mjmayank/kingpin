@@ -58,6 +58,7 @@ typedef NS_ENUM(NSInteger, KPClusteringControllerMapViewportChangeState) {
 
 - (id)initWithMapView:(MKMapView *)mapView
 {
+    self.annotationDict = [[NSDictionary alloc] init];
     return [self initWithMapView:mapView
              clusteringAlgorithm:[[KPGridClusteringAlgorithm alloc] init]];
             
@@ -176,12 +177,12 @@ typedef NS_ENUM(NSInteger, KPClusteringControllerMapViewportChangeState) {
 
 }
 
--(KPAnnotation *)getClusterForAnnotation:(MKAnnotation *)annotation{
+-(KPAnnotation *)getClusterForAnnotation:(NSObject<MKAnnotation> *)annotation{
     if(self.annotationDict[annotation]){
         return self.annotationDict[annotation];
     }
     else{
-        annotation;
+        return annotation;
     }
 }
 
@@ -213,14 +214,12 @@ typedef NS_ENUM(NSInteger, KPClusteringControllerMapViewportChangeState) {
     if ([self.delegate respondsToSelector:@selector(clusteringControllerShouldClusterAnnotations:)]) {
         clusteringEnabled = [self.delegate clusteringControllerShouldClusterAnnotations:self];
     }
-
-    NSDictionary * annotationDict = [[NSDictionary alloc] init];
     
     if (clusteringEnabled) {
         newClusters = [self.clusteringAlgorithm clusterAnnotationsInMapRect:clusteringMapRect
                                                               parentMapView:self.mapView
                                                              annotationTree:self.annotationTree
-                                                             annotationDict:annotationDict];
+                                                             annotationDict:self.annotationDict];
     } else {
         NSArray *newAnnotations = [self.annotationTree annotationsInMapRect:clusteringMapRect];
 
