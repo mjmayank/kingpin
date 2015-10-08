@@ -98,7 +98,7 @@ static CGPoint CGPointFromNSValue(NSValue *value) {
             if (newAnnotations.count > 0) {
                 id annotation = [[KPAnnotation alloc] initWithAnnotations:newAnnotations];
                 [newClusters addObject:annotation];
-                for newAnnotation in newAnnotations{
+                for(NSObject<MKAnnotation> * newAnnotation in newAnnotations){
                     annotationDict[newAnnotation] = annotation;
                 }
 
