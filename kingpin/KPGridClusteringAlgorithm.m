@@ -67,7 +67,7 @@ static CGPoint CGPointFromNSValue(NSValue *value) {
 - (NSArray *)clusterAnnotationsInMapRect:(MKMapRect)mapRect
                            parentMapView:(MKMapView *)mapView
                           annotationTree:(KPAnnotationTree *)annotationTree
-                          annotationDict:(NSDictionary *)annotationDict
+                          annotationDict:(NSMutableDictionary *)annotationDict
 {
     [self _ensureStrategyIntegrity];
     

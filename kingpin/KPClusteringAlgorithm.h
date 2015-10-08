@@ -24,6 +24,6 @@
 - (NSArray *)clusterAnnotationsInMapRect:(MKMapRect)mapRect
                            parentMapView:(MKMapView *)mapView
                           annotationTree:(KPAnnotationTree *)annotationTree
-                          annotationDict:(NSDictionary *)annotationDict;
+                          annotationDict:(NSMutableDictionary *)annotationDict;
 
 @end
