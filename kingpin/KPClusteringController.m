@@ -226,7 +226,7 @@ typedef NS_ENUM(NSInteger, KPClusteringControllerMapViewportChangeState) {
         newClusters = [newAnnotations kp_map:^id(id annotation) {
             KPAnnotation * ann = [[KPAnnotation alloc] initWithAnnotations:@[ annotation ]];
             [self.annotationDict setObject:[NSValue valueWithNonretainedObject:ann] forKey:[NSValue valueWithNonretainedObject:annotation]];
-            return ann
+            return ann;
         }];
     }
 
